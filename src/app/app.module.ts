@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -7,6 +8,7 @@ import { MediaItemComponent } from "./media-item/media-item.component";
 import { MediaItemListComponent } from "./media-item-list/media-item-list.component";
 import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
+import { MediaItemFormComponent } from "./media-item-form/media-item-form.component";
 
 @NgModule({
   //all of these can be set up as an array
@@ -18,11 +20,12 @@ import { CategoryListPipe } from "./category-list.pipe";
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    CategoryListPipe
+    CategoryListPipe,
+    MediaItemFormComponent
   ],
   //imports property is used to bring in other angular modules
   //your module will need
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   //the bootstrap property is used for a root module, and will let angular knnow
   //which component or components will be the starting points for the bootstrap process
