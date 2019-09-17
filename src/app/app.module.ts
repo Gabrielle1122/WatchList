@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
-
+import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MediaItemComponent } from "./media-item/media-item.component";
@@ -10,6 +10,7 @@ import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemFormComponent } from "./media-item-form/media-item-form.component";
 import { lookupListToken, lookupLists } from "./providers";
+import { MockXHRBackend } from "./mock-xhr-backend";
 
 @NgModule({
   //all of these can be set up as an array
@@ -26,12 +27,18 @@ import { lookupListToken, lookupLists } from "./providers";
   ],
   //imports property is used to bring in other angular modules
   //your module will need
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [
     {
       provide: lookupListToken,
       useValue: lookupLists
-    }
+    },
+    { provide: HttpXhrBackend, useClass: MockXHRBackend }
   ],
   //the bootstrap property is used for a root module, and will let angular knnow
   //which component or components will be the starting points for the bootstrap process
