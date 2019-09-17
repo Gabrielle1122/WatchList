@@ -9,6 +9,7 @@ import { MediaItemListComponent } from "./media-item-list/media-item-list.compon
 import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
 import { MediaItemFormComponent } from "./media-item-form/media-item-form.component";
+import { lookupListToken, lookupLists } from "./providers";
 
 @NgModule({
   //all of these can be set up as an array
@@ -26,7 +27,12 @@ import { MediaItemFormComponent } from "./media-item-form/media-item-form.compon
   //imports property is used to bring in other angular modules
   //your module will need
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [],
+  providers: [
+    {
+      provide: lookupListToken,
+      useValue: lookupLists
+    }
+  ],
   //the bootstrap property is used for a root module, and will let angular knnow
   //which component or components will be the starting points for the bootstrap process
   //entry point for your app code
