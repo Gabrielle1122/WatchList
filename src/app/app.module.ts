@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule, HttpXhrBackend } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -8,7 +7,6 @@ import { MediaItemComponent } from "./media-item/media-item.component";
 import { MediaItemListComponent } from "./media-item-list/media-item-list.component";
 import { FavoriteDirective } from "./favorite.directive";
 import { CategoryListPipe } from "./category-list.pipe";
-import { MediaItemFormComponent } from "./media-item-form/media-item-form.component";
 import { lookupListToken, lookupLists } from "./providers";
 import { MockXHRBackend } from "./mock-xhr-backend";
 import { routing } from "./app.routing";
@@ -23,18 +21,11 @@ import { routing } from "./app.routing";
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    CategoryListPipe,
-    MediaItemFormComponent
+    CategoryListPipe
   ],
   //imports property is used to bring in other angular modules
   //your module will need
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    routing
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, routing],
   providers: [
     {
       provide: lookupListToken,
