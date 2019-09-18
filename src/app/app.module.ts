@@ -10,6 +10,7 @@ import { CategoryListPipe } from "./category-list.pipe";
 import { lookupListToken, lookupLists } from "./providers";
 import { MockXHRBackend } from "./mock-xhr-backend";
 import { routing } from "./app.routing";
+import { CategoryListComponent } from "./category-list.component";
 
 @NgModule({
   //all of these can be set up as an array
@@ -21,7 +22,8 @@ import { routing } from "./app.routing";
     MediaItemComponent,
     MediaItemListComponent,
     FavoriteDirective,
-    CategoryListPipe
+    CategoryListPipe,
+    CategoryListComponent
   ],
   //imports property is used to bring in other angular modules
   //your module will need
